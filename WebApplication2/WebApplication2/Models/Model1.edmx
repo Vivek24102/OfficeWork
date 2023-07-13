@@ -1,0 +1,1158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Vk347vivekkhatriModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cityname" Type="varchar" MaxLength="151" Nullable="false" />
+          <Property Name="countryid" Type="int" />
+          <Property Name="stateid" Type="int" />
+        </EntityType>
+        <EntityType Name="City342">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="50" />
+          <Property Name="StateID" Type="int" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="101" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country342">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="diagnosis">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="diagnosisdetails" Type="varchar" MaxLength="104" Nullable="false" />
+        </EntityType>
+        <EntityType Name="medicine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="medicineName" Type="varchar" MaxLength="151" />
+          <Property Name="Diognosisid" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Vk347vivekkhatri.dbo.otp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="otp">
+          <Key>
+            <PropertyRef Name="otp" />
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="otp" Type="bigint" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="101" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State342">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="CountryID" Type="int" />
+          <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="states">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statename" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="countryid" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentData">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentFirstName" Type="varchar" MaxLength="255" />
+          <Property Name="StudentLastName" Type="varchar" MaxLength="255" />
+          <Property Name="StudentEmail" Type="varchar" MaxLength="255" />
+          <Property Name="StudentPhoneNumber" Type="varchar" MaxLength="30" />
+          <Property Name="StudentBirthday" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="10" />
+          <Property Name="StudentAddress" Type="varchar(max)" />
+          <Property Name="StudentCountry" Type="varchar" MaxLength="51" />
+          <Property Name="StudentState" Type="varchar" MaxLength="51" />
+          <Property Name="StudentCity" Type="varchar" MaxLength="51" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="treatmentdetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="patientid" Type="int" />
+          <Property Name="doctorid" Type="int" />
+          <Property Name="Nurseid" Type="int" />
+          <Property Name="diagnosis" Type="int" />
+          <Property Name="prescription" Type="int" />
+          <Property Name="treatmentfee" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="dot" Type="date" />
+          <Property Name="instruction" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="151" />
+          <Property Name="Lastname" Type="varchar" MaxLength="151" />
+          <Property Name="email" Type="varchar" MaxLength="101" />
+          <Property Name="password" Type="varchar" MaxLength="10" />
+          <Property Name="usertypeid" Type="int" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="mobileno" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="countryid" Type="int" />
+          <Property Name="stateid" Type="int" />
+          <Property Name="cityid" Type="int" />
+        </EntityType>
+        <EntityType Name="User343">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="255" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="255" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usertypename" Type="varchar" MaxLength="151" />
+        </EntityType>
+        <Association Name="FK__city__countryid__4CA06362">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__city__countryid__6383C8BA">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__city__stateid__4D94879B">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__city__stateid__6477ECF3">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City342__StateID__1CBC4616">
+          <End Role="State342" Type="Self.State342" Multiplicity="0..1" />
+          <End Role="City342" Type="Self.City342" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State342">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="City342">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__medicine__Diogno__6EF57B66">
+          <End Role="diagnosis" Type="Self.diagnosis" Multiplicity="0..1" />
+          <End Role="medicine" Type="Self.medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diagnosis">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="medicine">
+              <PropertyRef Name="Diognosisid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__State342__Countr__19DFD96B">
+          <End Role="Country342" Type="Self.Country342" Multiplicity="0..1" />
+          <End Role="State342" Type="Self.State342" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country342">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="State342">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__states__countryi__4E88ABD4">
+          <End Role="states" Type="Self.states" Multiplicity="0..1" />
+          <End Role="states1" Type="Self.states" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="states1">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__states__countryi__656C112C">
+          <End Role="states" Type="Self.states" Multiplicity="0..1" />
+          <End Role="states1" Type="Self.states" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="states1">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__diagn__6D0D32F4">
+          <End Role="diagnosis" Type="Self.diagnosis" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diagnosis">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="diagnosis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__docto__6B24EA82">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="doctorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__Nurse__6C190EBB">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="Nurseid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__patie__6A30C649">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="patientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__presc__6E01572D">
+          <End Role="medicine" Type="Self.medicine" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medicine">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="prescription" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__cityid__693CA210">
+          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="cityid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__countryid__6754599E">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__stateid__68487DD7">
+          <End Role="states" Type="Self.states" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__usertypeid__66603565">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="usertypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Vk347vivekkhatriModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City342" EntityType="Self.City342" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="country" EntityType="Self.country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country342" EntityType="Self.Country342" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="diagnosis" EntityType="Self.diagnosis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="medicine" EntityType="Self.medicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State342" EntityType="Self.State342" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="states" EntityType="Self.states" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentData" EntityType="Self.StudentData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="treatmentdetails" EntityType="Self.treatmentdetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User343" EntityType="Self.User343" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="otp" EntityType="Self.otp" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [otp].[otp] AS [otp], 
+    [otp].[email] AS [email]
+    FROM [dbo].[otp] AS [otp]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__city__countryid__4CA06362" Association="Self.FK__city__countryid__4CA06362">
+            <End Role="country" EntitySet="country" />
+            <End Role="city" EntitySet="city" />
+          </AssociationSet>
+          <AssociationSet Name="FK__city__countryid__6383C8BA" Association="Self.FK__city__countryid__6383C8BA">
+            <End Role="country" EntitySet="country" />
+            <End Role="city" EntitySet="city" />
+          </AssociationSet>
+          <AssociationSet Name="FK__city__stateid__4D94879B" Association="Self.FK__city__stateid__4D94879B">
+            <End Role="country" EntitySet="country" />
+            <End Role="city" EntitySet="city" />
+          </AssociationSet>
+          <AssociationSet Name="FK__city__stateid__6477ECF3" Association="Self.FK__city__stateid__6477ECF3">
+            <End Role="country" EntitySet="country" />
+            <End Role="city" EntitySet="city" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City342__StateID__1CBC4616" Association="Self.FK__City342__StateID__1CBC4616">
+            <End Role="State342" EntitySet="State342" />
+            <End Role="City342" EntitySet="City342" />
+          </AssociationSet>
+          <AssociationSet Name="FK__medicine__Diogno__6EF57B66" Association="Self.FK__medicine__Diogno__6EF57B66">
+            <End Role="diagnosis" EntitySet="diagnosis" />
+            <End Role="medicine" EntitySet="medicine" />
+          </AssociationSet>
+          <AssociationSet Name="FK__State342__Countr__19DFD96B" Association="Self.FK__State342__Countr__19DFD96B">
+            <End Role="Country342" EntitySet="Country342" />
+            <End Role="State342" EntitySet="State342" />
+          </AssociationSet>
+          <AssociationSet Name="FK__states__countryi__4E88ABD4" Association="Self.FK__states__countryi__4E88ABD4">
+            <End Role="states" EntitySet="states" />
+            <End Role="states1" EntitySet="states" />
+          </AssociationSet>
+          <AssociationSet Name="FK__states__countryi__656C112C" Association="Self.FK__states__countryi__656C112C">
+            <End Role="states" EntitySet="states" />
+            <End Role="states1" EntitySet="states" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__diagn__6D0D32F4" Association="Self.FK__treatment__diagn__6D0D32F4">
+            <End Role="diagnosis" EntitySet="diagnosis" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__docto__6B24EA82" Association="Self.FK__treatment__docto__6B24EA82">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__Nurse__6C190EBB" Association="Self.FK__treatment__Nurse__6C190EBB">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__patie__6A30C649" Association="Self.FK__treatment__patie__6A30C649">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__presc__6E01572D" Association="Self.FK__treatment__presc__6E01572D">
+            <End Role="medicine" EntitySet="medicine" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__cityid__693CA210" Association="Self.FK__User__cityid__693CA210">
+            <End Role="city" EntitySet="city" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__countryid__6754599E" Association="Self.FK__User__countryid__6754599E">
+            <End Role="country" EntitySet="country" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__stateid__68487DD7" Association="Self.FK__User__stateid__68487DD7">
+            <End Role="states" EntitySet="states" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__usertypeid__66603565" Association="Self.FK__User__usertypeid__66603565">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Vk347vivekkhatriModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cityname" Type="String" MaxLength="151" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="countryid" Type="Int32" />
+          <Property Name="stateid" Type="Int32" />
+          <NavigationProperty Name="country" Relationship="Self.FK__city__countryid__4CA06362" FromRole="city" ToRole="country" />
+          <NavigationProperty Name="country1" Relationship="Self.FK__city__countryid__6383C8BA" FromRole="city" ToRole="country" />
+          <NavigationProperty Name="country2" Relationship="Self.FK__city__stateid__4D94879B" FromRole="city" ToRole="country" />
+          <NavigationProperty Name="country3" Relationship="Self.FK__city__stateid__6477ECF3" FromRole="city" ToRole="country" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__User__cityid__693CA210" FromRole="city" ToRole="User" />
+        </EntityType>
+        <EntityType Name="City342">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int32" />
+          <NavigationProperty Name="State342" Relationship="Self.FK__City342__StateID__1CBC4616" FromRole="City342" ToRole="State342" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="cities" Relationship="Self.FK__city__countryid__4CA06362" FromRole="country" ToRole="city" />
+          <NavigationProperty Name="cities1" Relationship="Self.FK__city__countryid__6383C8BA" FromRole="country" ToRole="city" />
+          <NavigationProperty Name="cities2" Relationship="Self.FK__city__stateid__4D94879B" FromRole="country" ToRole="city" />
+          <NavigationProperty Name="cities3" Relationship="Self.FK__city__stateid__6477ECF3" FromRole="country" ToRole="city" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__User__countryid__6754599E" FromRole="country" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Country342">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="State342" Relationship="Self.FK__State342__Countr__19DFD96B" FromRole="Country342" ToRole="State342" />
+        </EntityType>
+        <EntityType Name="diagnosi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diagnosisdetails" Type="String" MaxLength="104" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="medicines" Relationship="Self.FK__medicine__Diogno__6EF57B66" FromRole="diagnosis" ToRole="medicine" />
+          <NavigationProperty Name="treatmentdetails" Relationship="Self.FK__treatment__diagn__6D0D32F4" FromRole="diagnosis" ToRole="treatmentdetails" />
+        </EntityType>
+        <EntityType Name="medicine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="medicineName" Type="String" MaxLength="151" FixedLength="false" Unicode="false" />
+          <Property Name="Diognosisid" Type="Int32" />
+          <NavigationProperty Name="diagnosi" Relationship="Self.FK__medicine__Diogno__6EF57B66" FromRole="medicine" ToRole="diagnosis" />
+          <NavigationProperty Name="treatmentdetails" Relationship="Self.FK__treatment__presc__6E01572D" FromRole="medicine" ToRole="treatmentdetails" />
+        </EntityType>
+        <EntityType Name="State342">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="City342" Relationship="Self.FK__City342__StateID__1CBC4616" FromRole="State342" ToRole="City342" />
+          <NavigationProperty Name="Country342" Relationship="Self.FK__State342__Countr__19DFD96B" FromRole="State342" ToRole="Country342" />
+        </EntityType>
+        <EntityType Name="state">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statename" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="countryid" Type="Int32" />
+          <NavigationProperty Name="states1" Relationship="Self.FK__states__countryi__4E88ABD4" FromRole="states" ToRole="states1" />
+          <NavigationProperty Name="state1" Relationship="Self.FK__states__countryi__4E88ABD4" FromRole="states1" ToRole="states" />
+          <NavigationProperty Name="states11" Relationship="Self.FK__states__countryi__656C112C" FromRole="states" ToRole="states1" />
+          <NavigationProperty Name="state2" Relationship="Self.FK__states__countryi__656C112C" FromRole="states1" ToRole="states" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__User__stateid__68487DD7" FromRole="states" ToRole="User" />
+        </EntityType>
+        <EntityType Name="StudentData">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentFirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StudentLastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StudentEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StudentPhoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="StudentBirthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="StudentAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StudentCountry" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+          <Property Name="StudentState" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+          <Property Name="StudentCity" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="treatmentdetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="patientid" Type="Int32" />
+          <Property Name="doctorid" Type="Int32" />
+          <Property Name="Nurseid" Type="Int32" />
+          <Property Name="diagnosis" Type="Int32" />
+          <Property Name="prescription" Type="Int32" />
+          <Property Name="treatmentfee" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="dot" Type="DateTime" Precision="0" />
+          <Property Name="instruction" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="diagnosi" Relationship="Self.FK__treatment__diagn__6D0D32F4" FromRole="treatmentdetails" ToRole="diagnosis" />
+          <NavigationProperty Name="medicine" Relationship="Self.FK__treatment__presc__6E01572D" FromRole="treatmentdetails" ToRole="medicine" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK__treatment__docto__6B24EA82" FromRole="treatmentdetails" ToRole="UserType" />
+          <NavigationProperty Name="UserType1" Relationship="Self.FK__treatment__Nurse__6C190EBB" FromRole="treatmentdetails" ToRole="UserType" />
+          <NavigationProperty Name="UserType2" Relationship="Self.FK__treatment__patie__6A30C649" FromRole="treatmentdetails" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="151" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="151" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="101" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="usertypeid" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="mobileno" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="countryid" Type="Int32" />
+          <Property Name="stateid" Type="Int32" />
+          <Property Name="cityid" Type="Int32" />
+          <NavigationProperty Name="city" Relationship="Self.FK__User__cityid__693CA210" FromRole="User" ToRole="city" />
+          <NavigationProperty Name="country" Relationship="Self.FK__User__countryid__6754599E" FromRole="User" ToRole="country" />
+          <NavigationProperty Name="state" Relationship="Self.FK__User__stateid__68487DD7" FromRole="User" ToRole="states" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK__User__usertypeid__66603565" FromRole="User" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="User343">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usertypename" Type="String" MaxLength="151" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="treatmentdetails" Relationship="Self.FK__treatment__docto__6B24EA82" FromRole="UserType" ToRole="treatmentdetails" />
+          <NavigationProperty Name="treatmentdetails1" Relationship="Self.FK__treatment__Nurse__6C190EBB" FromRole="UserType" ToRole="treatmentdetails" />
+          <NavigationProperty Name="treatmentdetails2" Relationship="Self.FK__treatment__patie__6A30C649" FromRole="UserType" ToRole="treatmentdetails" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__User__usertypeid__66603565" FromRole="UserType" ToRole="User" />
+        </EntityType>
+        <EntityType Name="otp">
+          <Key>
+            <PropertyRef Name="otp1" />
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="otp1" Type="Int64" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__city__countryid__4CA06362">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__city__countryid__6383C8BA">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__city__stateid__4D94879B">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__city__stateid__6477ECF3">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__cityid__693CA210">
+          <End Role="city" Type="Self.city" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="cityid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City342__StateID__1CBC4616">
+          <End Role="State342" Type="Self.State342" Multiplicity="0..1" />
+          <End Role="City342" Type="Self.City342" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State342">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="City342">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__countryid__6754599E">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__State342__Countr__19DFD96B">
+          <End Role="Country342" Type="Self.Country342" Multiplicity="0..1" />
+          <End Role="State342" Type="Self.State342" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country342">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="State342">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__medicine__Diogno__6EF57B66">
+          <End Role="diagnosis" Type="Self.diagnosi" Multiplicity="0..1" />
+          <End Role="medicine" Type="Self.medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diagnosis">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="medicine">
+              <PropertyRef Name="Diognosisid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__diagn__6D0D32F4">
+          <End Role="diagnosis" Type="Self.diagnosi" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="diagnosis">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="diagnosis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__presc__6E01572D">
+          <End Role="medicine" Type="Self.medicine" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medicine">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="prescription" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__states__countryi__4E88ABD4">
+          <End Role="states" Type="Self.state" Multiplicity="0..1" />
+          <End Role="states1" Type="Self.state" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="states1">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__states__countryi__656C112C">
+          <End Role="states" Type="Self.state" Multiplicity="0..1" />
+          <End Role="states1" Type="Self.state" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="states1">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__stateid__68487DD7">
+          <End Role="states" Type="Self.state" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="states">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__docto__6B24EA82">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="doctorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__Nurse__6C190EBB">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="Nurseid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__treatment__patie__6A30C649">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="treatmentdetails" Type="Self.treatmentdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="treatmentdetails">
+              <PropertyRef Name="patientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__usertypeid__66603565">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="usertypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Vk347vivekkhatriEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="cities" EntityType="Self.city" />
+          <EntitySet Name="City342" EntityType="Self.City342" />
+          <EntitySet Name="countries" EntityType="Self.country" />
+          <EntitySet Name="Country342" EntityType="Self.Country342" />
+          <EntitySet Name="diagnosis" EntityType="Self.diagnosi" />
+          <EntitySet Name="medicines" EntityType="Self.medicine" />
+          <EntitySet Name="State342" EntityType="Self.State342" />
+          <EntitySet Name="states" EntityType="Self.state" />
+          <EntitySet Name="StudentDatas" EntityType="Self.StudentData" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="treatmentdetails" EntityType="Self.treatmentdetail" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="User343" EntityType="Self.User343" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <EntitySet Name="otps" EntityType="Self.otp" />
+          <AssociationSet Name="FK__city__countryid__4CA06362" Association="Self.FK__city__countryid__4CA06362">
+            <End Role="country" EntitySet="countries" />
+            <End Role="city" EntitySet="cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__city__countryid__6383C8BA" Association="Self.FK__city__countryid__6383C8BA">
+            <End Role="country" EntitySet="countries" />
+            <End Role="city" EntitySet="cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__city__stateid__4D94879B" Association="Self.FK__city__stateid__4D94879B">
+            <End Role="country" EntitySet="countries" />
+            <End Role="city" EntitySet="cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__city__stateid__6477ECF3" Association="Self.FK__city__stateid__6477ECF3">
+            <End Role="country" EntitySet="countries" />
+            <End Role="city" EntitySet="cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__cityid__693CA210" Association="Self.FK__User__cityid__693CA210">
+            <End Role="city" EntitySet="cities" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City342__StateID__1CBC4616" Association="Self.FK__City342__StateID__1CBC4616">
+            <End Role="State342" EntitySet="State342" />
+            <End Role="City342" EntitySet="City342" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__countryid__6754599E" Association="Self.FK__User__countryid__6754599E">
+            <End Role="country" EntitySet="countries" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__State342__Countr__19DFD96B" Association="Self.FK__State342__Countr__19DFD96B">
+            <End Role="Country342" EntitySet="Country342" />
+            <End Role="State342" EntitySet="State342" />
+          </AssociationSet>
+          <AssociationSet Name="FK__medicine__Diogno__6EF57B66" Association="Self.FK__medicine__Diogno__6EF57B66">
+            <End Role="diagnosis" EntitySet="diagnosis" />
+            <End Role="medicine" EntitySet="medicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__diagn__6D0D32F4" Association="Self.FK__treatment__diagn__6D0D32F4">
+            <End Role="diagnosis" EntitySet="diagnosis" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__presc__6E01572D" Association="Self.FK__treatment__presc__6E01572D">
+            <End Role="medicine" EntitySet="medicines" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__states__countryi__4E88ABD4" Association="Self.FK__states__countryi__4E88ABD4">
+            <End Role="states" EntitySet="states" />
+            <End Role="states1" EntitySet="states" />
+          </AssociationSet>
+          <AssociationSet Name="FK__states__countryi__656C112C" Association="Self.FK__states__countryi__656C112C">
+            <End Role="states" EntitySet="states" />
+            <End Role="states1" EntitySet="states" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__stateid__68487DD7" Association="Self.FK__User__stateid__68487DD7">
+            <End Role="states" EntitySet="states" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__docto__6B24EA82" Association="Self.FK__treatment__docto__6B24EA82">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__Nurse__6C190EBB" Association="Self.FK__treatment__Nurse__6C190EBB">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__treatment__patie__6A30C649" Association="Self.FK__treatment__patie__6A30C649">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="treatmentdetails" EntitySet="treatmentdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__usertypeid__66603565" Association="Self.FK__User__usertypeid__66603565">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Vk347vivekkhatriModelStoreContainer" CdmEntityContainer="Vk347vivekkhatriEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cities">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cityname" ColumnName="cityname" />
+                <ScalarProperty Name="countryid" ColumnName="countryid" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City342">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.City342">
+              <MappingFragment StoreEntitySet="City342">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country342">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.Country342">
+              <MappingFragment StoreEntitySet="Country342">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="diagnosis">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.diagnosi">
+              <MappingFragment StoreEntitySet="diagnosis">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="diagnosisdetails" ColumnName="diagnosisdetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="medicines">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.medicine">
+              <MappingFragment StoreEntitySet="medicine">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="medicineName" ColumnName="medicineName" />
+                <ScalarProperty Name="Diognosisid" ColumnName="Diognosisid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="State342">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.State342">
+              <MappingFragment StoreEntitySet="State342">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="states">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.state">
+              <MappingFragment StoreEntitySet="states">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="statename" ColumnName="statename" />
+                <ScalarProperty Name="countryid" ColumnName="countryid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentDatas">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.StudentData">
+              <MappingFragment StoreEntitySet="StudentData">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+                <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+                <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+                <ScalarProperty Name="StudentPhoneNumber" ColumnName="StudentPhoneNumber" />
+                <ScalarProperty Name="StudentBirthday" ColumnName="StudentBirthday" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
+                <ScalarProperty Name="StudentCountry" ColumnName="StudentCountry" />
+                <ScalarProperty Name="StudentState" ColumnName="StudentState" />
+                <ScalarProperty Name="StudentCity" ColumnName="StudentCity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="treatmentdetails">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.treatmentdetail">
+              <MappingFragment StoreEntitySet="treatmentdetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="patientid" ColumnName="patientid" />
+                <ScalarProperty Name="doctorid" ColumnName="doctorid" />
+                <ScalarProperty Name="Nurseid" ColumnName="Nurseid" />
+                <ScalarProperty Name="diagnosis" ColumnName="diagnosis" />
+                <ScalarProperty Name="prescription" ColumnName="prescription" />
+                <ScalarProperty Name="treatmentfee" ColumnName="treatmentfee" />
+                <ScalarProperty Name="dot" ColumnName="dot" />
+                <ScalarProperty Name="instruction" ColumnName="instruction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="usertypeid" ColumnName="usertypeid" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="countryid" ColumnName="countryid" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User343">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.User343">
+              <MappingFragment StoreEntitySet="User343">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usertypename" ColumnName="usertypename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="otps">
+            <EntityTypeMapping TypeName="Vk347vivekkhatriModel.otp">
+              <MappingFragment StoreEntitySet="otp">
+                <ScalarProperty Name="otp1" ColumnName="otp" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

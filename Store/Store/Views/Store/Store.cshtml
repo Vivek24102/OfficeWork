@@ -1,0 +1,122 @@
+﻿@model Store.Models.ViewModel.Details
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <div>
+        <div class="card-header">
+            <div class="text-center">
+            <h2>Order Here</h2>
+            </div>
+        </div>
+       <div class="card-body">
+        <div class="fluid-container">
+
+            <div class="row table-responsive">
+                <table class="table table-bordered text-center table-responsive">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            @foreach (var item in Model.warehouses)
+                            {
+                               <th style="width:300%">WareHouse_@item.Id</th>
+                            }
+                            
+                        </tr>
+                        <tr>
+                            <th></th>
+                            @foreach(var item in Model.warehouses)
+                            {
+                                @foreach(var items in Model.items)
+                                {
+                                    
+
+                                <th>item_@items.ID</th>
+                                }
+                            }
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                         @foreach(var item in Model.store){
+                        <tr>
+                            <td>@item.id</td>
+                                @foreach(var ware in Model.warehouses)
+                                {
+                                    @foreach(var data in Model.items)
+                                    {
+                                        
+                                    <td><input type="number" id="text_'@item.id'_'@ware.Id'_'@data.ID'"></td>
+                                    }
+                                    
+                                }
+
+                        </tr>
+                         }
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+       </div>
+       <div class="card-footer">
+           <div class="text-center">
+               <button class="btn btn-primary" id="save">Submit</button>
+           </div>
+       </div>
+    </div>
+<script>
+     $(document).ready(function(){
+          debugger
+         
+        //$(window).on('load', function () {
+          
+            
+        //    $('tbody').append(`<tr><td>1</td><td><input type="number" id="S1w1it1"></td><td><input type="number" id="S1w1it2"></td><td><input type="number" id="S1w1it3"></td><td><input type="number" id="S1w2it1"></td><td><input type="number" id="S1w2it2"></td><td><input type="number" id="S1w2it3"></td><td><input type="number" id="S1w3it1"></td><td><input type="number" id="S1w3it2"></td><td><input type="number" id="S1w3it3"></td></tr>
+
+        //     <tr><td>2</td><td><input type="number" id="S2w1it1"></td><td><input type="number" id="S2w1it2"></td><td><input type="number" id="S2w1it3"></td><td><input type="number" id="S2w2it1"></td><td><input type="number" id="S2w2it2"></td><td><input type="number" id="S2w2it3"></td><td><input type="number" id="S2w3it1"></td><td><input type="number" id="S2w3it2"></td><td><input type="number" id="S2w3it3"></td></tr>
+
+        //      <tr><td>3</td><td><input type="number" id="S3w1it1"></td><td><input type="number" id="S3w1it2"></td><td><input type="number" id="S3w1it3"></td><td><input type="number" id="S3w2it1"></td><td><input type="number" id="S3w2it2"></td><td><input type="number" id="S3w2it3"></td><td><input type="number" id="S3w3it1"></td><td><input type="number" id="S3w3it2"></td><td><input type="number" id="S3w3it3"></td></tr>
+
+        //         <tr><td>4</td><td><input type="number" id="S4w1it1"></td><td><input type="number" id="S4w1it2"></td><td><input type="number" id="S4w1it3"></td><td><input type="number" id="S4w2it1"></td><td><input type="number" id="S4w2it2"></td><td><input type="number" id="S4w2it3"></td><td><input type="number" id="S4w3it1"></td><td><input type="number" id="S4w3it2"></td><td><input type="number" id="S4w3it3"></td></tr>
+
+        //        <tr><td>5</td><td><input type="number" id="S5w1it1"></td><td><input type="number" id="S5w1it2"></td><td><input type="number" id="S5w1it3"></td><td><input type="number" id="S5w2it1"></td><td><input type="number" id="S5w2it2"></td><td><input type="number" id="S5w2it3"></td><td><input type="number" id="S5w3it1"></td><td><input type="number" id="S5w3it2"></td><td><input type="number" id="S5w3it3"></td></tr>`)
+        //});
+
+
+        $("#save").click(function(){
+             var array = []
+     
+              var obj =  {}
+ 
+            $('input[type=number]').each(function () {
+                if ($(this).val() != 0){
+                    array.push({ 'Quantity': $(this).val(), 'storeid': $(this).attr("id").slice(6,7), 'Warehouseid': $(this).attr("id").slice(10, 11), 'Itemid': $(this).attr("id").slice(14, 15) });
+                
+                }
+             
+            })  
+            console.log(array)
+            var data = {
+                data:array
+            }
+            var fdata = new FormData();
+            fdata.append('data',array);
+            $.ajax({
+                
+                type: "POST",
+                url: "Store/Store/", // the method we are calling
+                //contentType: "application/json; charset=utf-8",
+                data: data,
+                //dataType: "json",
+                dataType: "json",
+                success: function (result) {
+                    alert(result + " record(s) inserted.");
+                }
+               
+            });
+            $('input').val('')
+        })
+     })
+</script>

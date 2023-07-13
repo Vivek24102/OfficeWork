@@ -1,0 +1,12 @@
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\bin\Debug\net7.0\LoginForm_Model.deps.json
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\bin\Debug\net7.0\LoginForm_Model.dll
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\bin\Debug\net7.0\LoginForm_Model.pdb
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\obj\Debug\net7.0\LoginForm_Model.csproj.AssemblyReference.cache
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\obj\Debug\net7.0\LoginForm_Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\obj\Debug\net7.0\LoginForm_Model.AssemblyInfoInputs.cache
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\obj\Debug\net7.0\LoginForm_Model.AssemblyInfo.cs
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\obj\Debug\net7.0\LoginForm_Model.csproj.CoreCompileInputs.cache
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\obj\Debug\net7.0\LoginForm_Model.dll
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\obj\Debug\net7.0\refint\LoginForm_Model.dll
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\obj\Debug\net7.0\LoginForm_Model.pdb
+C:\Users\sit336\source\repos\LoginForm\LoginForm_Model\obj\Debug\net7.0\ref\LoginForm_Model.dll

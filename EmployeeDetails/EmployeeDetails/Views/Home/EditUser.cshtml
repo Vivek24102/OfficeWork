@@ -1,0 +1,25 @@
+﻿@model Employee_Model.Models.Myuser;
+
+<form method="post" asp-action="EditUser" asp-controller="Home">
+    <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" asp-for="Id">
+  <div class="container bg-gradient">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">UserName</label>
+        <input type="text" asp-for="UserName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Useremail</label>
+        <input type="email" asp-for="Useremail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Usermobileno</label>
+        <input type="number" asp-for="Usermobileno" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">.</div>
+    </div>
+  </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,32 @@
+﻿@model Employee_Model.Models.Task;
+
+<form method="post" asp-action="AddEditTask" asp-controller="Task">
+    <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" asp-for="Id">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">TaskName</label>
+        <input type="text" asp-for="TaskName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">StartDate</label>
+        <input type="date" asp-for="StartDate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">EndDate</label>
+        <input type="date" asp-for="EndDate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">.</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">TaskDescription</label>
+        <input type="text" asp-for="TaskDescription" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">.</div>
+    </div>
+
+    <div class="mb-3">
+        <select class="form-select" asp-for="Userid" asp-items="@ViewBag.UserList"></select>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

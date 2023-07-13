@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Adodemo_Model.Model.Employee>
+
+@{
+    ViewData["Title"] = "Getemployee";
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title float-start">Employee List</h3>
+        <p>
+            <a class="btn btn-outline-primary" asp-action="AddEditEmployee" asp-controller="Home">Add</a>
+        </p>
+      
+    </div>
+  <div class="card-body">
+    
+    <div class="container-fluid table table-responsive ">
+            <table id="emplist" class="table table-bordered table-responsive bg-light">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Firstname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MiddleName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Lastname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dob)
+
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.mobileno)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmailAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.qulification)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Experiance)
+                    </th>
+
+                    <th>Action</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Firstname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MiddleName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Lastname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dob)
+                            @*@{string dob = item.Dob.ToString("dd/MM/yyyy");}
+                        <span>@dob</span>*@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mobileno)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.qulification)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Experiance)
+                        </td>
+
+
+
+                        @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+                        <td><a class="btn btn-sm btn-primary" asp-action="AddEditEmployee" asp-controller="Home" asp-route-id="@item.Id">Edit</a></td>
+                        <td><a class="btn btn-sm btn-danger" asp-action="delete" asp-controller="Home" asp-route-id="@item.Id">Delete</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<div class="card-footer"></div>
+
+
+</div>
+<script>
+    $(document).ready(function(){
+        $("#emplist").dataTable();
+    })
+</script>

@@ -1,0 +1,50 @@
+﻿@model List<Employee_Model.Models.Task>
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    string sessionvalue = HttpContextAccessor.HttpContext.Session.GetString("userrole");
+}
+<div class="container">
+    @if (sessionvalue == "Admin")
+    {
+        <div class="text-center">
+            <a class="btn btn-outline-primary" asp-action="AddEditTask" asp-controller="Task">+Add</a>
+        </div>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>UserName</th>
+                <th>TaskName</th>
+                <th>StartDate</th>
+                <th>EndDate</th>
+                <th>TaskDescription</th>
+                <th>Action</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td>@a.User.UserName</td>
+                    <td>@a.TaskName</td>
+                    <td>@a.StartDate</td>
+                    <td>@a.EndDate</td>
+                    <td>@a.TaskDescription</td>
+                    @if (sessionvalue == "Devloper")
+                    {
+
+                        <td><a class="btn btn-danger" asp-action="showtasklog" asp-controller="TaskLog" asp-route-id="@a.Id">tasklog</a></td>
+                    }
+                    @if (sessionvalue == "Admin")
+                    {
+                        <td><a class="btn btn-primary" asp-action="AddEditTask" asp-controller="Task" asp-route-id="@a.Id">Edit</a></td>
+                        <td><a class="btn btn-danger" asp-action="delete" asp-controller="Task" asp-route-id="@a.Id">Delete</a></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

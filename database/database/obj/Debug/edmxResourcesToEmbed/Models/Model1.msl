@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Sit_ordersModelStoreContainer" CdmEntityContainer="Sit_ordersEntities">
+    <EntitySetMapping Name="coupons">
+      <EntityTypeMapping TypeName="Sit_ordersModel.coupon">
+        <MappingFragment StoreEntitySet="coupon">
+          <ScalarProperty Name="CouponICoded" ColumnName="CouponICoded" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Flat_Amount" ColumnName="Flat_Amount" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="Expirydate" ColumnName="Expirydate" />
+          <ScalarProperty Name="UsageLimit" ColumnName="UsageLimit" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="Sit_ordersModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="itemname" ColumnName="itemname" />
+          <ScalarProperty Name="itemAmount" ColumnName="itemAmount" />
+          <ScalarProperty Name="itemvalue" ColumnName="itemvalue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="Sit_ordersModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="userPswd" ColumnName="userPswd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="placeorders">
+      <EntityTypeMapping TypeName="Sit_ordersModel.placeorder">
+        <MappingFragment StoreEntitySet="placeorder">
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="totalqty" ColumnName="totalqty" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="aftergst" ColumnName="aftergst" />
+          <ScalarProperty Name="coupancode" ColumnName="coupancode" />
+          <ScalarProperty Name="totalpaybal" ColumnName="totalpaybal" />
+          <ScalarProperty Name="cgst" ColumnName="cgst" />
+          <ScalarProperty Name="sgst" ColumnName="sgst" />
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sit_ordersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="coupon">
+    <Key>
+      <PropertyRef Name="CouponICoded" />
+    </Key>
+    <Property Name="CouponICoded" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="51" />
+    <Property Name="Type" Type="varchar" MaxLength="51" />
+    <Property Name="Flat_Amount" Type="int" />
+    <Property Name="Percentage" Type="int" />
+    <Property Name="Expirydate" Type="date" />
+    <Property Name="UsageLimit" Type="int" />
+    <Property Name="IsActive" Type="varchar" MaxLength="51" />
+  </EntityType>
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="itemname" Type="varchar" MaxLength="51" />
+    <Property Name="itemAmount" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="itemvalue" Type="varchar" MaxLength="51" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="userEmail" />
+    </Key>
+    <Property Name="userEmail" Type="varchar" MaxLength="51" Nullable="false" />
+    <Property Name="userPswd" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="placeorder">
+    <Key>
+      <PropertyRef Name="orderid" />
+    </Key>
+    <Property Name="orderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="totalqty" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="amount" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="aftergst" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="coupancode" Type="varchar" MaxLength="51" />
+    <Property Name="totalpaybal" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="cgst" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="sgst" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="itemid" Type="int" />
+  </EntityType>
+  <EntityContainer Name="Sit_ordersModelStoreContainer">
+    <EntitySet Name="coupon" EntityType="Self.coupon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="placeorder" EntityType="Self.placeorder" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

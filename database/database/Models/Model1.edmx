@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Sit_ordersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="coupon">
+          <Key>
+            <PropertyRef Name="CouponICoded" />
+          </Key>
+          <Property Name="CouponICoded" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="51" />
+          <Property Name="Type" Type="varchar" MaxLength="51" />
+          <Property Name="Flat_Amount" Type="int" />
+          <Property Name="Percentage" Type="int" />
+          <Property Name="Expirydate" Type="date" />
+          <Property Name="UsageLimit" Type="int" />
+          <Property Name="IsActive" Type="varchar" MaxLength="51" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemname" Type="varchar" MaxLength="51" />
+          <Property Name="itemAmount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="itemvalue" Type="varchar" MaxLength="51" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="userEmail" />
+          </Key>
+          <Property Name="userEmail" Type="varchar" MaxLength="51" Nullable="false" />
+          <Property Name="userPswd" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="placeorder">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="totalqty" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="amount" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="aftergst" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="coupancode" Type="varchar" MaxLength="51" />
+          <Property Name="totalpaybal" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="cgst" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="sgst" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="itemid" Type="int" />
+        </EntityType>
+        <EntityContainer Name="Sit_ordersModelStoreContainer">
+          <EntitySet Name="coupon" EntityType="Self.coupon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="placeorder" EntityType="Self.placeorder" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Sit_ordersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="coupon">
+          <Key>
+            <PropertyRef Name="CouponICoded" />
+          </Key>
+          <Property Name="CouponICoded" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+          <Property Name="Flat_Amount" Type="Int32" />
+          <Property Name="Percentage" Type="Int32" />
+          <Property Name="Expirydate" Type="DateTime" Precision="0" />
+          <Property Name="UsageLimit" Type="Int32" />
+          <Property Name="IsActive" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemname" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+          <Property Name="itemAmount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="itemvalue" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="userEmail" />
+          </Key>
+          <Property Name="userEmail" Type="String" MaxLength="51" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userPswd" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="placeorder">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="totalqty" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="amount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="aftergst" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="coupancode" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+          <Property Name="totalpaybal" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="cgst" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="sgst" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="itemid" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="Sit_ordersEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="coupons" EntityType="Self.coupon" />
+          <EntitySet Name="items" EntityType="Self.item" />
+          <EntitySet Name="logins" EntityType="Self.login" />
+          <EntitySet Name="placeorders" EntityType="Self.placeorder" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Sit_ordersModelStoreContainer" CdmEntityContainer="Sit_ordersEntities">
+          <EntitySetMapping Name="coupons">
+            <EntityTypeMapping TypeName="Sit_ordersModel.coupon">
+              <MappingFragment StoreEntitySet="coupon">
+                <ScalarProperty Name="CouponICoded" ColumnName="CouponICoded" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Flat_Amount" ColumnName="Flat_Amount" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Expirydate" ColumnName="Expirydate" />
+                <ScalarProperty Name="UsageLimit" ColumnName="UsageLimit" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="items">
+            <EntityTypeMapping TypeName="Sit_ordersModel.item">
+              <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="itemname" ColumnName="itemname" />
+                <ScalarProperty Name="itemAmount" ColumnName="itemAmount" />
+                <ScalarProperty Name="itemvalue" ColumnName="itemvalue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="Sit_ordersModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userPswd" ColumnName="userPswd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="placeorders">
+            <EntityTypeMapping TypeName="Sit_ordersModel.placeorder">
+              <MappingFragment StoreEntitySet="placeorder">
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="totalqty" ColumnName="totalqty" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="aftergst" ColumnName="aftergst" />
+                <ScalarProperty Name="coupancode" ColumnName="coupancode" />
+                <ScalarProperty Name="totalpaybal" ColumnName="totalpaybal" />
+                <ScalarProperty Name="cgst" ColumnName="cgst" />
+                <ScalarProperty Name="sgst" ColumnName="sgst" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

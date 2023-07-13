@@ -1,0 +1,47 @@
+﻿@model List<Employee_Model.Models.Employee>
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+<div class="container">
+    <div class="text-center">
+        <a class="btn btn-outline-primary " asp-action="AddEdit" asp-controller="Employee">+Add</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>EmployeeName</th>
+                <th>Email</th>
+                <th>ContactNo</th>
+                <th>Address</th>
+                <th>DepartmentName</th>
+                <th>Action</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @* @foreach (var a in Model)
+            {
+            <tr>
+            <td>@a.EmployeeName</td>
+            <td>@a.Emailid</td>
+            <td>@a.ContactNo</td>
+            <td>@a.EmpAddress</td>
+            <td>@a.Department.DeptName</td>
+            <td><a class="btn btn-primary" asp-action="AddEdit" asp-controller="Employee" asp-route-id="@a.Emplooyeid">Edit</a></td>
+            <td>
+
+
+
+
+            </td>
+
+            </tr>
+            }*@
+        </tbody>
+    </table>
+</div>
+<script src="~/js/pages/employeee.js"></script>

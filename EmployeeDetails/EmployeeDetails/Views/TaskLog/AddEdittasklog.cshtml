@@ -1,0 +1,28 @@
+﻿@model Employee_Model.Models.Tasklog;
+
+<form method="post" asp-action="AddEdittasklog" asp-controller="TaskLog">
+    <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" asp-for="Id">
+    <div class="d-flex flex-row align-items-center mb-4">
+        <div class="col-md-4">
+            <select id="drpEmpList" class="form-select" asp-for="TaskId" asp-items="@ViewBag.TaskList">
+                <option value="">--Select--</option>
+            </select>
+            <input type="hidden" asp-for="TaskId" />
+
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">TaskLog</label>
+        <input type="text" asp-for="TaskLog1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">LogDate</label>
+        <input type="date" asp-for="Logdate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">.</div>
+    </div>
+   
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

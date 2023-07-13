@@ -1,0 +1,16 @@
+﻿@model Employee_Model.Models.Department;
+
+<div class="container">
+    <form method="post" asp-action="AddEditDepartment" asp-controller="Department">
+        <input type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" asp-for="DeptId">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Department</label>
+            <input type="text" asp-for="DeptName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text"></div>
+        </div>
+       
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

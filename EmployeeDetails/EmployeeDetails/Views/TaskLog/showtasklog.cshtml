@@ -1,0 +1,35 @@
+﻿
+
+@model List<Employee_Model.Models.Tasklog>
+
+
+
+<div class="container">
+    <div class="text-center">
+        <a class="btn btn-outline-primary" asp-action="AddEdittasklog" asp-controller="TaskLog">+Add</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>TaskName</th>
+                <th>logdate</th>
+                <th>TaskLog</th>
+                <th>Action</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td>@a.Task.TaskName</td>
+                    <td>@a.Logdate</td>
+                    <td>@a.TaskLog1</td>
+                    <td><a class="btn btn-primary" asp-action="AddEditTask" asp-controller="Task" asp-route-id="@a.Id">Edit</a></td>
+                    <td><a class="btn btn-danger" asp-action="delete" asp-controller="Task" asp-route-id="@a.Id">Delete</a></td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
